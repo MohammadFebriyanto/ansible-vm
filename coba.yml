@@ -1,0 +1,13 @@
+- name: Synchronize log go-banking
+  become: no
+  gather_facts: no
+  hosts: localhost
+  tasks:
+    - name: Synchronize with rsync
+      synchronize: 
+        src: '/home/febriyanto/Desktop/intern/Terraform.BeMan'
+        dest: '/home/febriyanto/Desktop/intern/'
+        archive: yes
+        compress: yes
+        partial: yes
+      delegate_to: ansiblelab
