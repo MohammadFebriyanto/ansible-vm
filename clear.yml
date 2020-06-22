@@ -1,0 +1,10 @@
+---
+- name: Clear log file
+  hosts: vm-app1-replica
+  become: yes
+  gather_facts: no
+  task:
+    - name: Remove file (delete file)
+      file:
+            path: /var/www/prod-ci/go-investor/httplog/2019-*.log
+            state: absent
